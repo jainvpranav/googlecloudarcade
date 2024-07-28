@@ -48,7 +48,38 @@ const add_data = (data, index) => {
     tbody.appendChild(tr);
 };
 
+const ga = document.createElement("a");
+ga.href = data[0]["Google Cloud Skills Boost Profile URL"];
+ga.target = "_blank";
+ga.innerHTML = data[0]['User Name'];
+ga.classList += "profilelink";
+const sga = document.createElement("p");
+sga.textContent = data[0]['# of Skill Badges Completed'];
+document.getElementById("goldname").appendChild(sga);
+document.getElementById("goldname").appendChild(ga);
 
-data.forEach((element, index) => {
-    add_data(element, index);
-});
+const sa = document.createElement("a");
+sa.href = data[1]["Google Cloud Skills Boost Profile URL"];
+sa.target = "_blank";
+sa.innerHTML = data[1]['User Name'];
+sa.classList += "profilelink";
+const ssa = document.createElement("p");
+ssa.textContent = data[1]['# of Skill Badges Completed'];
+document.getElementById("silvername").appendChild(ssa);
+document.getElementById("silvername").appendChild(sa);
+
+const ba = document.createElement("a");
+ba.href = data[2]["Google Cloud Skills Boost Profile URL"];
+ba.target = "_blank";
+ba.innerHTML = data[2]['User Name'];
+ba.classList += "profilelink";
+const sba = document.createElement("p");
+sba.textContent = data[2]['# of Skill Badges Completed'];
+document.getElementById("bronzename").appendChild(sba);
+document.getElementById("bronzename").appendChild(ba);
+
+
+for(var i=3; i<data.length; i++) {
+    add_data(data[i], i);
+}
+

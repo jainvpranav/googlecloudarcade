@@ -27,7 +27,7 @@ body {
 }
 
 .gcp {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Pixelify Sans', 'Poppins', sans-serif;
     font-size: 4rem;
     background: linear-gradient(45deg, #ea4335, #4285f4, #34a853, #f9ab00);
     background-clip: text;
@@ -37,7 +37,7 @@ body {
 }
 
 .leaderboard {
-    font-family: 'Pixelify Sans', sans-serif;
+    font-family: 'Pixelify Sans', 'Poppins', sans-serif;
     font-size: 3.5rem;
     background: #d19e1d;
     background: -webkit-linear-gradient(to right, #d19e1d, #ffd86e, #e3a812);
@@ -47,6 +47,44 @@ body {
     text-align: center;
 }
 
+.trophies {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 2vw;
+    padding: 10px;
+    text-align: center;
+}
+
+.gold, .silver, .bronze {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.username {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+}
+
+.img1 {
+    width: 18vw;
+    height: auto;
+}
+.img2 {
+    width: 11vw;
+    height: auto;
+}
+.img3 {
+    width: 11vw;
+    height: auto;
+}
+
 .leaderboardtable {
     border-radius: 2vw;
     padding: 10px;
@@ -54,6 +92,7 @@ body {
     max-width: 60vw;
     margin: 0 auto;
     text-align: center;
+    border: 2px solid black;
 }
 
 .profilelink {
@@ -81,6 +120,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    border: 2px solid black;
 }
 
 .legenddata {
@@ -113,6 +153,10 @@ body {
     .legend {
         max-width: 50vw;
     }
+
+    .profilelink {
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (max-width: 450px) {
@@ -126,5 +170,11 @@ body {
 
     .legend {
         max-width: 70vw;
+    }
+
+    .profilelink:hover {
+        /* background: none; */
+        /* color: black; */
+        padding: 12px;
     }
 }
