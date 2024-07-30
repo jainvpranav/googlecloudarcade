@@ -5,7 +5,7 @@ const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZi
 const supabase = createClient(url, key);
 
 
-const { data, error } = await supabase.from('arcade').select('"User Name", "Google Cloud Skills Boost Profile URL", "# of Skill Badges Completed", "# of Arcade Games Completed", "# of Trivia Games Completed", "Access Code Redemption Status"').order('"# of Skill Badges Completed"', { ascending: false }, '"User Name"', { ascending: true });
+const { data, error } = await supabase.from('arcade').select('"User Name", "Google Cloud Skills Boost Profile URL", "# of Skill Badges Completed", "# of Arcade Games Completed", "# of Trivia Games Completed", "Access Code Redemption Status"').order('"# of Skill Badges Completed"', { ascending: false }, '"User Name"');
 if (error) {
     console.log(error);
 }
