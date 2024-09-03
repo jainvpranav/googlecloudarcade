@@ -54,14 +54,14 @@ const add_data = (data, index) => {
         tda.className += "bg-info text-white";
         tdt.className += "bg-info text-white";
     }
-    else if (data['Milestone Earned'].includes("2")) {
+    else if (data['Milestone Earned'].includes("Milestone 2")) {
         th.className += "bg-primary text-white";
         tdn.className += "bg-primary text-white";
         tds.className += "bg-primary text-white";
         tda.className += "bg-primary text-white";
         tdt.className += "bg-primary text-white";
     }
-    else if (data['Milestone Earned'].includes("1")) {
+    else if (data['Milestone Earned'].includes("Milestone 1")) {
         th.className += "bg-warning text-white";
         tdn.className += "bg-warning text-white";
         tds.className += "bg-warning text-white";
