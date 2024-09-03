@@ -58,7 +58,9 @@ body {
     text-align: center;
 }
 
-.gold, .silver, .bronze {
+.gold,
+.silver,
+.bronze {
     width: 33%;
     display: flex;
     flex-direction: column;
@@ -76,10 +78,12 @@ body {
     width: 18vw;
     height: auto;
 }
+
 .img2 {
     width: 11vw;
     height: auto;
 }
+
 .img3 {
     width: 11vw;
     height: auto;
@@ -97,16 +101,16 @@ body {
 
 .profilelink {
     text-decoration: none;
-    color: black;
+    color: white;
     padding: 10px;
     border-radius: 2vw;
 }
 
-.profilelink:hover {
-    background-color: black;
+/* .profilelink:hover {
+     background-color: black; 
     color: white;
     padding: 10px
-}
+} */
 
 .legend {
     max-width: 30vw;
@@ -123,16 +127,47 @@ body {
     border: 2px solid black;
 }
 
-.legenddata {
-    font-size: 1.2rem;
+.l1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
-.yellowcolor {
-    background-color: #ffd86e;
-    width: 20px;
-    height: 20px;
+.legenddata {
+    font-size: 1.1rem;
+}
+
+.ball {
+    width: 18px;
+    height: 18px;
     border-radius: 20px;
     border: 1px solid black;
+}
+
+.red {
+    background-color: #dc3545;
+}
+
+.yellow {
+    background-color: #ffc107;
+}
+
+.green {
+    background-color: #28a745;
+}
+
+.blue {
+    background-color: #007bff;
+}
+
+.seagreen {
+    background-color: #17a2b8;
+}
+
+.black {
+    background-color: #323539;
 }
 
 @media only screen and (max-width: 800px) {
