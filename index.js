@@ -5,13 +5,14 @@ const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZi
 const supabase = createClient(url, key);
 
 
-const { data, error } = await supabase.from('arcade').select('"User Name", "Google Cloud Skills Boost Profile URL", "# of Skill Badges Completed", "# of Arcade Games Completed", "# of Trivia Games Completed", "Access Code Redemption Status"').order('"# of Skill Badges Completed"', {'ascending': false}).order('"User Name"');
+const { data, error } = await supabase
+    .from('arcade')
+    .select('"User Name", "Google Cloud Skills Boost Profile URL", "# of Skill Badges Completed", "# of Arcade Games Completed", "# of Trivia Games Completed", "Access Code Redemption Status", "Milestone Earned"')
+    .order('"# of Skill Badges Completed"', { 'ascending': false })
+    .order('"User Name"', { 'ascending': true });
 if (error) {
     console.log(error);
 }
-
-
-
 
 const add_data = (data, index) => {
     const tbody = document.getElementById("tablebody");
@@ -33,11 +34,39 @@ const add_data = (data, index) => {
     const tdt = document.createElement("td");
     tdt.textContent = data['# of Trivia Games Completed'];
     if (data['Access Code Redemption Status'] === "No") {
-        th.className += "bg-warning";
-        tdn.className += "bg-warning";
-        tds.className += "bg-warning";
-        tda.className += "bg-warning";
-        tdt.className += "bg-warning";
+        th.className += "bg-danger";
+        tdn.className += "bg-danger";
+        tds.className += "bg-danger";
+        tda.className += "bg-danger";
+        tdt.className += "bg-danger";
+    }
+    if (data['Milestone Earned'].includes("Ultimate")) {
+        th.className += "bg-success text-white";
+        tdn.className += "bg-success text-white";
+        tds.className += "bg-success text-white";
+        tda.className += "bg-success text-white";
+        tdt.className += "bg-success text-white";
+    }
+    else if (data['Milestone Earned'].includes("3")) {
+        th.className += "bg-info text-white";
+        tdn.className += "bg-info text-white";
+        tds.className += "bg-info text-white";
+        tda.className += "bg-info text-white";
+        tdt.className += "bg-info text-white";
+    }
+    else if (data['Milestone Earned'].includes("2")) {
+        th.className += "bg-primary text-white";
+        tdn.className += "bg-primary text-white";
+        tds.className += "bg-primary text-white";
+        tda.className += "bg-primary text-white";
+        tdt.className += "bg-primary text-white";
+    }
+    else if (data['Milestone Earned'].includes("1")) {
+        th.className += "bg-warning text-white";
+        tdn.className += "bg-warning text-white";
+        tds.className += "bg-warning text-white";
+        tda.className += "bg-warning text-white";
+        tdt.className += "bg-warning text-white";
     }
 
     tr.appendChild(th);
@@ -52,7 +81,7 @@ const ga = document.createElement("a");
 ga.href = data[0]["Google Cloud Skills Boost Profile URL"];
 ga.target = "_blank";
 ga.innerHTML = data[0]['User Name'];
-ga.classList += "profilelink";
+ga.classList += "profilelink text-dark";
 const sga = document.createElement("p");
 sga.textContent = data[0]['# of Skill Badges Completed'];
 document.getElementById("goldname").appendChild(sga);
@@ -62,7 +91,7 @@ const sa = document.createElement("a");
 sa.href = data[1]["Google Cloud Skills Boost Profile URL"];
 sa.target = "_blank";
 sa.innerHTML = data[1]['User Name'];
-sa.classList += "profilelink";
+sa.classList += "profilelink text-dark";
 const ssa = document.createElement("p");
 ssa.textContent = data[1]['# of Skill Badges Completed'];
 document.getElementById("silvername").appendChild(ssa);
@@ -72,14 +101,13 @@ const ba = document.createElement("a");
 ba.href = data[2]["Google Cloud Skills Boost Profile URL"];
 ba.target = "_blank";
 ba.innerHTML = data[2]['User Name'];
-ba.classList += "profilelink";
+ba.classList += "profilelink text-dark";
 const sba = document.createElement("p");
 sba.textContent = data[2]['# of Skill Badges Completed'];
 document.getElementById("bronzename").appendChild(sba);
 document.getElementById("bronzename").appendChild(ba);
 
 
-for(var i=3; i<data.length; i++) {
+for (var i = 0; i < data.length; i++) {
     add_data(data[i], i);
 }
-
