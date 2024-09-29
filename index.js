@@ -112,7 +112,11 @@ document.getElementById("bronzename").appendChild(sba);
 document.getElementById("bronzename").appendChild(ba);
 
 for (var i = 0; i < data.length; i++) {
-    add_data(data[i], i);
+    if (data[i]['Access Code Redemption Status'] !== "No"
+        && (data[i]['# of Skill Badges Completed'] !== 0
+            || data[i]['# of Arcade Games Completed'] !== 0
+            || data[i]['# of Trivia Games Completed'] !== 0))
+        add_data(data[i], i);
 }
 
 document.getElementById("ultimate").innerHTML = `0${ultimate}`;
