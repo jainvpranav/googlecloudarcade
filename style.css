@@ -112,6 +112,28 @@ body {
     padding: 10px
 } */
 
+.milestonecount {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    max-width: 25vw;
+    height: auto;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 2vw;
+    gap: 20px;
+}
+
+.milestonecountspandiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .legend {
     max-width: 30vw;
     height: auto;
@@ -125,19 +147,24 @@ body {
     justify-content: center;
     gap: 20px;
     border: 2px solid black;
+    font-family: 'Pixelify Sans', 'Poppins';
 }
 
-.l1 {
+.l1 h5 {
+    font-size: 2rem;
+}
+
+/* .l1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-}
-
+    gap: 15px;
+} */
+/* 
 .legenddata {
-    font-size: 1.1rem;
-}
+    font-size: 1.5rem;
+} */
 
 .ball {
     width: 18px;
@@ -170,6 +197,16 @@ body {
     background-color: #323539;
 }
 
+.legend-count {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 1px solid black; */
+
+}
+
+
 @media only screen and (max-width: 800px) {
     body {
         background-image: url('./vector/cloudbgp.jpg');
@@ -192,6 +229,10 @@ body {
     .profilelink {
         font-size: 1rem;
     }
+
+    .milestonecount {
+        max-width: 60vw;
+    }
 }
 
 @media only screen and (max-width: 450px) {
@@ -211,5 +252,9 @@ body {
         /* background: none; */
         /* color: black; */
         padding: 12px;
+    }
+
+    .legend-count {
+        flex-direction: column-reverse;
     }
 }

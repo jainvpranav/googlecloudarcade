@@ -13,7 +13,7 @@ const { data, error } = await supabase
 if (error) {
     console.log(error);
 }
-
+let ultimate = 0, milestone3 = 0, milestone2 = 0, milestone1 = 0;
 const add_data = (data, index) => {
     const tbody = document.getElementById("tablebody");
     const tr = document.createElement("tr");
@@ -25,6 +25,7 @@ const add_data = (data, index) => {
     a.target = "_blank";
     a.innerHTML = data['User Name'];
     a.classList += "profilelink";
+    a.style.textTransform="capitalize";
     const tdn = document.createElement("td");
     tdn.appendChild(a);
     const tds = document.createElement("td");
@@ -46,6 +47,7 @@ const add_data = (data, index) => {
         tds.className += "bg-success text-white";
         tda.className += "bg-success text-white";
         tdt.className += "bg-success text-white";
+        ultimate += 1;
     }
     else if (data['Milestone Earned'].includes("3")) {
         th.className += "bg-info text-white";
@@ -53,6 +55,7 @@ const add_data = (data, index) => {
         tds.className += "bg-info text-white";
         tda.className += "bg-info text-white";
         tdt.className += "bg-info text-white";
+        milestone3 += 1;
     }
     else if (data['Milestone Earned'].includes("Milestone 2")) {
         th.className += "bg-primary text-white";
@@ -60,6 +63,7 @@ const add_data = (data, index) => {
         tds.className += "bg-primary text-white";
         tda.className += "bg-primary text-white";
         tdt.className += "bg-primary text-white";
+        milestone2 += 1;
     }
     else if (data['Milestone Earned'].includes("Milestone 1")) {
         th.className += "bg-warning text-white";
@@ -67,8 +71,8 @@ const add_data = (data, index) => {
         tds.className += "bg-warning text-white";
         tda.className += "bg-warning text-white";
         tdt.className += "bg-warning text-white";
+        milestone1 += 1;
     }
-
     tr.appendChild(th);
     tr.appendChild(tdn);
     tr.appendChild(tds);
@@ -107,7 +111,11 @@ sba.textContent = data[2]['# of Skill Badges Completed'];
 document.getElementById("bronzename").appendChild(sba);
 document.getElementById("bronzename").appendChild(ba);
 
-
 for (var i = 0; i < data.length; i++) {
     add_data(data[i], i);
 }
+
+document.getElementById("ultimate").innerHTML = `0${ultimate}`;
+document.getElementById("milestone3").innerHTML = milestone3;
+document.getElementById("milestone2").innerHTML = milestone2;
+document.getElementById("milestone1").innerHTML = milestone1;
